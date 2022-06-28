@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask # type: ignore
 from flask_restful import Api   # type: ignore
 from flask_jwt import JWT   # type: ignore
@@ -11,7 +13,7 @@ app = Flask(__name__)
 
 # turns off Flask SQLAlchemy mod tracker, SQLAlchemy mod tracker still on (better)
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URI", "sqlite:///data.db")
 
 app.secret_key = "matt"  # hide in a production environment
 api = Api(app)
