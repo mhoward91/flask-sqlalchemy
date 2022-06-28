@@ -1,7 +1,6 @@
 # model - internal representation of an entity - a helper which doesn't pollute API resources
 # resource - external representation of an entity (what client sees)
 
-import sqlite3
 from db import db
 
 # extends db.Model so SQLAlchemy can map between the database & these objects
